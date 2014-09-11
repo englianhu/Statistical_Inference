@@ -2,7 +2,7 @@
 title: "Statistical_Inference"
 author: "englianhu"
 date: "Thursday, September 11, 2014"
-output: html_document
+output: pdf_document
 ---
 ## Asymptotics
 * Asymptotics is the term for the behavior of statistics as the sample size (or some other relevant quantity) limits to infinity (or some other relevant number)
@@ -27,8 +27,9 @@ The LLN forms the basis of frequency style thinking
 ---
 ## Law of large numbers in action
 ```{r, fig.height=5, fig.width=5}
-n <- 10000; means <- cumsum(rnorm(n)) / (1 : n); library(ggplot2)
-g <- ggplot(data.frame(x = 1 : n, y = means), aes(x = x, y = y))
+library(ggplot2)
+library(datasets)
+g <- ggplot(ToothGrowth, aes(x = len, y = dose))
 g <- g + geom_hline(yintercept = 0) + geom_line(size = 2)
 g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
@@ -36,8 +37,7 @@ g
 ---
 ## Law of large numbers in action, coin flip
 ```{r, fig.height=5, fig.width=5}
-means <- cumsum(sample(0 : 1, n , replace = TRUE)) / (1 : n)
-g <- ggplot(data.frame(x = 1 : n, y = means), aes(x = x, y = y))
+g <- ggplot(ToothGrowth, aes(x = len, y = dose))
 g <- g + geom_hline(yintercept = 0.5) + geom_line(size = 2)
 g <- g + labs(x = "Number of obs", y = "Cumulative mean")
 g
