@@ -2,7 +2,7 @@
 title: "Statistical_Inference"
 author: "englianhu"
 date: "Thursday, September 11, 2014"
-output: html_document
+output: pdf_document
 ---
 ## Asymptotics
 * Asymptotics is the term for the behavior of statistics as the sample size (or some other relevant quantity) limits to infinity (or some other relevant number)
@@ -129,13 +129,35 @@ in Galton's data
 
 ```r
 library(UsingR)
+```
+
+```
+Error: package 'survival' 2.36-14 was found, but >= 2.37.6 is required by
+'Hmisc'
+```
+
+```r
 data(father.son)
+```
+
+```
+Warning: data set 'father.son' not found
+```
+
+```r
 x <- father.son$sheight
+```
+
+```
+Error: object 'father.son' not found
+```
+
+```r
 (mean(x) + c(-1, 1) * qnorm(0.975) * sd(x)/sqrt(length(x)))/12
 ```
 
 ```
-[1] 5.710 5.738
+[1] NA NA
 ```
 ---
 ## Sample proportions
